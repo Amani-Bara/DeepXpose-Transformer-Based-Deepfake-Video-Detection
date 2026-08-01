@@ -1,10 +1,10 @@
 # DeepXpose: A Transformer-Based System for Deepfake Video Detection
 
-> Senior Graduation Project – Bachelor of Computer Science (Artificial Intelligence), Effat University
+> 🎓 Senior Graduation Project – Bachelor of Computer Science (Artificial Intelligence), Effat University
 
 ## Overview
 
-DeepXpose is an end-to-end deepfake video detection system designed to identify manipulated videos using a transformer-based architecture. The project addresses key challenges in modern deepfake detection, including generalization across datasets, robustness to compression artifacts, and efficient spatio-temporal feature extraction.
+DeepXpose is an end-to-end deepfake video detection system designed to identify manipulated videos using a transformer-based architecture. The project addresses key challenges in modern deepfake detection, including cross-dataset generalization, robustness to compression artifacts, and efficient spatio-temporal feature extraction.
 
 The system integrates a complete AI pipeline consisting of video preprocessing, transformer-based model inference, backend APIs, database management, and a web-based user interface.
 
@@ -15,22 +15,22 @@ The system integrates a complete AI pipeline consisting of video preprocessing, 
 Recent advances in generative AI have made deepfake videos increasingly realistic and difficult to detect. Existing detection methods often struggle with:
 
 - Generalization to unseen manipulation techniques
-- Performance degradation on compressed videos
+- Performance degradation on compressed or low-quality videos
 - Capturing long-range temporal inconsistencies
 
-DeepXpose addresses these limitations through the TALL-Swin transformer architecture and an efficient preprocessing pipeline.
+DeepXpose addresses these challenges through the TALL-Swin Transformer architecture and an efficient preprocessing pipeline designed for robust real-world deployment.
 
 ---
 
 ## Key Features
 
 - Transformer-based deepfake video detection
-- TALL-Swin architecture
+- TALL-Swin Transformer architecture
 - Multi-frame video sampling
-- Thumbnail-based frame aggregation
-- Secure authentication system
+- Thumbnail-based frame aggregation (TALL)
+- Secure user authentication
 - Video upload and automated analysis
-- Detection reports
+- Detection report generation
 - Full-stack web application
 - Modular AI pipeline
 
@@ -39,7 +39,7 @@ DeepXpose addresses these limitations through the TALL-Swin transformer architec
 ## Performance Highlights
 
 | Metric | Result |
-|---------|--------|
+|--------|--------|
 | Validation Accuracy | **92.1%** |
 | Test Accuracy | **92.3%** |
 | Average Inference Time | **~95 ms/video** |
@@ -50,20 +50,24 @@ DeepXpose addresses these limitations through the TALL-Swin transformer architec
 - Achieved **92.3%** test accuracy on benchmark datasets.
 - Demonstrated strong cross-dataset generalization.
 - Reduced overfitting through multi-dataset training.
-- Near-real-time inference (~95 ms per video).
+- Achieved near-real-time inference (~95 ms per video).
 - Lightweight deployment with less than **1 GB** GPU memory usage.
 
-  ---
+---
 
 ## System Architecture
 
-*Insert your exported System Architecture image here.*
+> *(Insert the exported System Architecture diagram here.)*
+
+```markdown
+![System Architecture](images/system_architecture.png)
+```
 
 ---
 
 ## Methodology
 
-The proposed system follows a modular end-to-end pipeline for detecting deepfake videos.
+The proposed system follows a modular end-to-end pipeline for deepfake video detection.
 
 ```text
 Video Upload
@@ -83,25 +87,28 @@ TALL-Swin Transformer
 Binary Classification
       ↓
 Prediction & Confidence Score
+```
+
+The TALL module organizes eight representative video frames into a **2×4 thumbnail layout**, preserving temporal order while enabling the Swin Transformer to jointly learn spatial and temporal inconsistencies for robust binary classification.
 
 ---
 
 ## Benchmark Datasets
 
-The model was trained and evaluated using publicly available benchmark datasets:
+The proposed model was trained and evaluated using publicly available benchmark datasets containing both authentic and manipulated videos.
 
 - DeeperForensics-1.0
 - Celeb-DF (v2)
 - SDFDV
 
-These datasets contain authentic and manipulated videos captured under diverse lighting conditions, compression levels, identities, and manipulation techniques, improving the model's robustness and generalization.
+These datasets provide diverse identities, lighting conditions, compression levels, and manipulation techniques, improving the model's robustness and generalization.
 
 ---
 
 ## Training Configuration
 
 | Parameter | Value |
-|----------|------|
+|----------|-------|
 | Backbone | TALL-Swin Transformer |
 | Loss Function | Cross-Entropy Loss |
 | Optimizer | AdamW |
@@ -109,10 +116,12 @@ These datasets contain authentic and manipulated videos captured under diverse l
 | Input Resolution | 224 × 224 |
 | Frames per Sample | 8 |
 | Thumbnail Layout | 2 × 4 (TALL) |
+
 ---
+
 ## Technology Stack
 
-### AI & Machine Learning
+### Artificial Intelligence & Machine Learning
 
 - Python
 - PyTorch
@@ -122,8 +131,13 @@ These datasets contain authentic and manipulated videos captured under diverse l
 - NumPy
 - Pandas
 - Pillow
-- CUDA
 - Scikit-learn
+- CUDA
+
+### Computer Vision
+
+- MediaPipe
+- Dlib
 
 ### Backend
 
@@ -149,7 +163,7 @@ These datasets contain authentic and manipulated videos captured under diverse l
 ## Results
 
 | Model | Accuracy |
-|---------|----------|
+|--------|---------:|
 | XceptionNet | 85% |
 | EfficientNet-B4 | 89% |
 | Swin-B Transformer | 90% |
@@ -160,22 +174,27 @@ The proposed DeepXpose system achieved:
 - **92.1% validation accuracy**
 - **92.3% test accuracy**
 - **~95 ms** average inference time per video
-- **< 1 GB** GPU memory usage
+- **<1 GB** GPU memory usage
 
-The model demonstrated strong generalization across benchmark datasets while maintaining efficient deployment performance.
+The model demonstrated strong cross-dataset generalization while maintaining efficient deployment performance for near-real-time video analysis.
 
 ---
+
 ## Project Modules
 
-- Frontend Interface
+- User Interface
+- Data Collection
 - Data Preprocessing
-- Model Fine-Tuning
+- AI Detection Engine
+- Model Training & Fine-Tuning
 - Testing & Evaluation
-- Database Management
 - Backend API
-- Frontend API
+- Database Management
+- Service Integration
+- Security Layer
 
 ---
+
 ## Applications
 
 - Digital Forensics
@@ -183,52 +202,56 @@ The model demonstrated strong generalization across benchmark datasets while mai
 - Social Media Content Verification
 - Journalism & Fact-Checking
 - Enterprise Content Moderation
-- AI Security
+- AI Security & Misinformation Detection
+
 ---
+
 ## Research Contributions
 
-- Transformer-based deepfake detection
-- Spatio-temporal video analysis
-- Efficient preprocessing pipeline
-- Robust detection across multiple datasets
-- End-to-end deployment architecture
+- Transformer-based deepfake video detection
+- Efficient spatio-temporal feature learning using TALL encoding
+- Multi-dataset training for improved generalization
+- Lightweight deployment with low memory consumption
+- Near-real-time inference
+- End-to-end AI deployment architecture integrating preprocessing, inference, APIs, database, and user interface
 
 ---
-
-
 
 ## Repository Contents
 
-- Project Presentation
-- System Overview
-- Architecture Diagrams
-- Methodology
+- 📑 Project Presentation
+- 🏗️ System Architecture
+- 📊 Methodology
+- 📈 Experimental Results
+- 📝 Project Documentation
 
-> Source code is not included in this public repository.
+> **Note:** The source code is not included in this public repository. This repository is intended to showcase the project architecture, methodology, and research outcomes.
 
 ---
 
 ## Authors
 
-- Amani Albarazi
-- Bushra Alshehri
-- Maram Alhusami
+- **Amani Albarazi**
+- **Bushra Alshehri**
+- **Maram Alhusami**
 
-Supervisor:
+### Supervisors
+
 - Dr. Fidaa Abed
 - Dr. Passent Elkafrawy
 
-Instructor:
+### Instructor
+
 - Dr. Naila Marir
 
-Effat University
+**Effat University**  
 Bachelor of Computer Science (Artificial Intelligence)
 
 ---
 
 ## Citation
 
-If you reference this work, please cite it as:
+If you reference this work, please cite:
 
-**DeepXpose: A Transformer-Based System for Deepfake Video Detection**  
-Senior Graduation Project, Effat University.
+> **DeepXpose: A Transformer-Based System for Deepfake Video Detection**  
+> Senior Graduation Project, Effat University, 2026.
