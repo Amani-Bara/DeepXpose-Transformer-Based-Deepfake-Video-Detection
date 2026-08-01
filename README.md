@@ -36,6 +36,25 @@ DeepXpose addresses these limitations through the TALL-Swin transformer architec
 
 ---
 
+## Performance Highlights
+
+| Metric | Result |
+|---------|--------|
+| Validation Accuracy | **92.1%** |
+| Test Accuracy | **92.3%** |
+| Average Inference Time | **~95 ms/video** |
+| GPU Memory Usage | **< 1 GB** |
+
+### Key Findings
+
+- Achieved **92.3%** test accuracy on benchmark datasets.
+- Demonstrated strong cross-dataset generalization.
+- Reduced overfitting through multi-dataset training.
+- Near-real-time inference (~95 ms per video).
+- Lightweight deployment with less than **1 GB** GPU memory usage.
+
+  ---
+
 ## System Architecture
 
 *Insert your exported System Architecture image here.*
@@ -44,28 +63,53 @@ DeepXpose addresses these limitations through the TALL-Swin transformer architec
 
 ## Methodology
 
-The proposed workflow consists of:
+The proposed system follows a modular end-to-end pipeline for detecting deepfake videos.
 
-1. Video Upload
-2. Frame Extraction
-3. Data Preprocessing
-4. Thumbnail Generation
-5. TALL-Swin Transformer
-6. Deepfake Classification
-7. Result Visualization
+```text
+Video Upload
+      ↓
+Frame Extraction (FFmpeg + OpenCV)
+      ↓
+Face Detection (MediaPipe / Dlib)
+      ↓
+Data Cleaning
+      ↓
+Thumbnail Layout (2×4 TALL)
+      ↓
+Normalization (224×224)
+      ↓
+TALL-Swin Transformer
+      ↓
+Binary Classification
+      ↓
+Prediction & Confidence Score
 
 ---
 
-## Datasets
+## Benchmark Datasets
 
-The project utilizes benchmark datasets commonly used for deepfake detection:
+The model was trained and evaluated using publicly available benchmark datasets:
 
 - DeeperForensics-1.0
 - Celeb-DF (v2)
 - SDFDV
 
+These datasets contain authentic and manipulated videos captured under diverse lighting conditions, compression levels, identities, and manipulation techniques, improving the model's robustness and generalization.
+
 ---
 
+## Training Configuration
+
+| Parameter | Value |
+|----------|------|
+| Backbone | TALL-Swin Transformer |
+| Loss Function | Cross-Entropy Loss |
+| Optimizer | AdamW |
+| Learning Rate | 1 × 10⁻⁴ |
+| Input Resolution | 224 × 224 |
+| Frames per Sample | 8 |
+| Thumbnail Layout | 2 × 4 (TALL) |
+---
 ## Technology Stack
 
 ### AI & Machine Learning
@@ -102,6 +146,25 @@ The project utilizes benchmark datasets commonly used for deepfake detection:
 
 ---
 
+## Results
+
+| Model | Accuracy |
+|---------|----------|
+| XceptionNet | 85% |
+| EfficientNet-B4 | 89% |
+| Swin-B Transformer | 90% |
+| **DeepXpose (TALL-Swin)** | **92%** |
+
+The proposed DeepXpose system achieved:
+
+- **92.1% validation accuracy**
+- **92.3% test accuracy**
+- **~95 ms** average inference time per video
+- **< 1 GB** GPU memory usage
+
+The model demonstrated strong generalization across benchmark datasets while maintaining efficient deployment performance.
+
+---
 ## Project Modules
 
 - Frontend Interface
@@ -113,7 +176,15 @@ The project utilizes benchmark datasets commonly used for deepfake detection:
 - Frontend API
 
 ---
+## Applications
 
+- Digital Forensics
+- Law Enforcement Investigations
+- Social Media Content Verification
+- Journalism & Fact-Checking
+- Enterprise Content Moderation
+- AI Security
+---
 ## Research Contributions
 
 - Transformer-based deepfake detection
@@ -123,6 +194,8 @@ The project utilizes benchmark datasets commonly used for deepfake detection:
 - End-to-end deployment architecture
 
 ---
+
+
 
 ## Repository Contents
 
@@ -142,8 +215,8 @@ The project utilizes benchmark datasets commonly used for deepfake detection:
 - Maram Alhusami
 
 Supervisor:
-- Fidaa Abed
-- Passent Elkafrawy
+- Dr. Fidaa Abed
+- Dr. Passent Elkafrawy
 
 Instructor:
 - Dr. Naila Marir
