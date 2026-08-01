@@ -57,12 +57,7 @@ DeepXpose addresses these challenges through the TALL-Swin Transformer architect
 
 ## System Architecture
 
-
-
-```markdown
 ![System Architecture](images/system_architecture_deepXpose.png)
-```
-
 ---
 
 ## Methodology
